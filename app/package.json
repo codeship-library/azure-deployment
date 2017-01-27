@@ -1,0 +1,11 @@
+{
+  "name": "hello world",
+  "version": "0.0.1",
+  "description": "hello world example",
+  "author": "Rachel White",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rachelnicole/cs50-ascend.git"
+  }
+}

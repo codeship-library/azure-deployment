@@ -1,0 +1,6 @@
+- name: Azure Docker Engine Deploy
+  service: azuredeployment
+  command: bash /deploy/deployment/azure_deploy.sh
+- name: Azure Docker App Deploy
+  service: azureappdeploy
+  command: bash /deployment/app_deploy.sh

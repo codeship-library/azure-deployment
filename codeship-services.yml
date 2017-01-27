@@ -1,5 +1,6 @@
 azuredeployment:
   image: microsoft/azure-cli
+  cached: true
   env_file:
   - azure.env
   - vm.env

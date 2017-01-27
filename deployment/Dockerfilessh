@@ -1,0 +1,15 @@
+FROM alpine:latest
+MAINTAINER jessde@microsoft.com
+
+# Copy app folder from repo to container
+COPY app ./app
+
+# Copy deployment scripts folder from repo to container
+COPY deployment ./deployment
+
+# Copy FQDN and VM encrypted creds
+
+COPY fqdn vm.env.encrypted ./
+
+RUN apk update && \
+    apk add openssh sshpass bash

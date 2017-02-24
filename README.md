@@ -12,7 +12,7 @@ We will use the microsoft/azure-cli docker image throughout the documentation 
 
 ## Prerequisites
 
-Prior to getting started, please ensure you have the following installed in your local linux/unix environment. 
+Prior to getting started, please ensure you have the following installed in your local linux/unix environment.
 - [Jet Codeship's CLI](https://documentation.codeship.com/pro/getting-started/installation/)
 - [Docker](https://www.docker.com/products/overview)
 - [Azure CLI](https://docs.microsoft.com/azure/xplat-cli-install)
@@ -71,25 +71,6 @@ The following script will use the [Azure GitHub QuickStart Templates](https://gi
 
 Disclaimer: It is always recommended to read any script thoroughly before exectuting it in your environment. These scripts are provided for demo purposes only.
 
-### Azure Docker App Deployment Service Definition and Examples
-
-To interact with the new Docker VM on Azure you configured in the previous step, we will now create a second service to connect to the Docker engine and pass the appropriate commands. An example of the code we use is as follows:
-
-```
-azureappdeploy:
-  build:
-    image: alpine:latest
-    dockerfile_path: deployment/Dockerfilessh
-  encrypted_env_file: 
-  - vm.env.encrypted
-```
-To interact with the service, we will create a step that will call the [Azure App Deployment Script](deployment/app_deploy.sh), which copies the repo's app folder from Codeship's host to the Docker VM in Azure. From there, we can use ssh to pass docker commands to build the image with our app and run the new image in a container accessible from the FQDN created in the previous step. At the end of the app deployment, you will also see the website where your webapp can be viewed. 
-
-Note: The demo maps port 80:8080 for the node app running the container.
-
-Disclaimer: It is always recommended to read any script thoroughly before exectuting it in your environment. These scripts are provided for demo purposes only.
-
 ### See also
 
 - [Create a Docker environment in Azure using the Docker VM extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-dockerextension)
- 

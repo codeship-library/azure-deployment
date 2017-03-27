@@ -1,4 +1,12 @@
-[ ![Codeship Status for rachelnicole/cs50-ascend](https://app.codeship.com/projects/2e799880-a2ce-0134-f153-76e92e43cf6d/status?branch=JD-Dev)](https://app.codeship.com/projects/190079)
+## Important: Deployment Scenarios On Branches
+
+Please note that this repo contains three branches:
+
+- **master**, which covers authenticating with an Azure instance using Codeship Pro.
+
+- **ssh_deploy**, which covers using an SSH connection to run Docker commands directly on an Azure instance.
+
+- **acs-swarm**, which covers using Azure Container Service to deploy Docker containers to an Azure instance.
 
 ## Continuous Delivery to Azure with Docker
 

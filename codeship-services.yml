@@ -1,17 +1,23 @@
-azuredeployment:
-  image: microsoft/azure-cli
-  env_file:
-  - azure.env
-  - vm.env
+acsdeploy:
+  image: azuresdk/azure-cli-python:latest
+  encrypted_env_file: azure.env.encrypted
   environment:
-  - Resource=Codeship
+  - Resource=Codeshipaz
   - Location=eastus
+  - Servicename=ACSJDDemo
+  - Orchestrator=Swarm
+  - Dnsprefix=jdacs2
   volumes:
   - ./:/deploy
-
-azureappdeploy:
+sshtunnel:
   build:
-    image: alpine:latest
-    dockerfile_path: deployment/Dockerfilessh
-  encrypted_env_file:
-  - vm.env.encrypted
+    image: sshtunnel
+    dockerfile_path: sshtunnel/Dockerfile
+    add_docker: true
+  encrypted_env_file: azure.env.encrypted
+  environment: 
+  - Servicename=ACSJDDemo
+  - Resource=Codeshipaz
+  - Orchestrator=Swarm
+  - local_port=2375
+  - remote_port=2375

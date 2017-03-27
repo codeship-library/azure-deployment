@@ -1,3 +1,13 @@
-- name: Azure Docker Engine Deploy
-  service: azuredeployment
-  command: bash /deploy/deployment/azure_deploy.sh
+- name: Azure ACS Deploy
+  service: acsdeploy
+  command: bash /deploy/deployment/acs_deploy.sh
+  # tag: master
+- type: serial
+  name: SSH Tunnel
+  service: sshtunnel
+  steps:
+  - command: docker run -d --name docker-nginx -p 80:80 nginx
+  - command: docker ps -a
+  - command: docker run -d --name node-demo -p 8080:8000 jldeen/node-demo
+  - command: docker ps -a
+  # tag: master

@@ -1,5 +1,3 @@
-[ ![Codeship Status for jldeen/codeship2.0](https://app.codeship.com/projects/2cad1f50-ebdf-0134-1415-52722a5ec4af/status?branch=master)](https://app.codeship.com/projects/208179)
-
 ## Continuous Delivery to Azure with Docker
 
 To make it easy for you to deploy your application to Azure we’ve built a container that has the AzureCLI installed. We will set up a simple example showing you how to configure any deployment to Azure.
@@ -90,7 +88,7 @@ sshtunnel:
     dockerfile_path: sshtunnel/Dockerfile
     add_docker: true
   encrypted_env_file: azure.env.encrypted
-  environment: 
+  environment:
   - Servicename=ACSJDDemo
   - Resource=Codeshipaz
   - Orchestrator=Swarm

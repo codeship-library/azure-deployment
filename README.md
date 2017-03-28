@@ -69,7 +69,7 @@ acsdeploy:
 
 To interact with different Azure services you can simply call the Azure command directly. You can use any Azure service or command provided by [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). You can use environment variables or command arguments to set the Azure Datacenter Location or other parameters. Take a look at the [command line reference for Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/) to get started.   
 
-Take a look at the [Steps](https://documentation.codeship.com/pro/getting-started/steps/) documentation page so you have a good understanding how steps on Codeship work and how to set it up in your codeship-steps.yml.
+Take a look at the [Steps](https://documentation.codeship.com/pro/getting-started/steps/) documentation page so that you have a good understanding how steps on Codeship work and how to set it up in your codeship-steps.yml.
 
 The following script will deploy your new Azure Container Service environment with Docker Swarm as your orchestrator. The deployment script can access any files in your repository through /deploy. To confirm, the [Azure Deployment Script](deployment/acs_deploy.sh), stands up an Azure Container Service resource group for Docker Swarm. 
 

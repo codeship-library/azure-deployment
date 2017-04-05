@@ -1,17 +1,21 @@
-azuredeployment:
-  image: microsoft/azure-cli
-  env_file:
-  - azure.env
-  - vm.env
+k8acsdeploy:
+  image: azuresdk/azure-cli-python:latest
+  encrypted_env_file: azure.env.encrypted
   environment:
-  - Resource=Codeship
+  - Resource=Codeshipk8
   - Location=eastus
+  - Servicename=K8Demo
+  - Orchestrator=kubernetes
+  - Dnsprefix=k8acs001
   volumes:
   - ./:/deploy
-
-azureappdeploy:
+kubectl:
   build:
-    image: alpine:latest
-    dockerfile_path: deployment/Dockerfilessh
-  encrypted_env_file:
-  - vm.env.encrypted
+    image: kubectl
+    dockerfile_path: kubconnect/Dockerfile
+    add_docker: true
+  encrypted_env_file: azure.env.encrypted
+  environment: 
+  - Servicename=K8Demo
+  - Resource=Codeshipk8
+  - Orchestrator=kubernetes

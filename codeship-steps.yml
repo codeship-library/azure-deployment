@@ -1,3 +1,10 @@
-- name: Azure Docker Engine Deploy
-  service: azuredeployment
-  command: bash /deploy/deployment/azure_deploy.sh
+- name: Azure Kubernetes ACS Deploy
+  service: k8acsdeploy
+  command: bash /deploy/scripts/acs_deploy.sh
+  # tag: master
+- type: serial
+  name: KubeCtrl
+  service: kubectl
+  steps:
+  - command: kubectl get nodes
+  # tag: master
